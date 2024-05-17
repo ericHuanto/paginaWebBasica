@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --colorPrimario: #3b0ba1 ;
+    --colorSecuandario: #870f0f;
+    --colorAside: #9C27B0;
+    --colorFuentePrimario: #212121;
+    --colorFuenteSecuandario: #757575;
+}
+
+html{
+    font-family: "Jacquard 12", system-ui;
+}
+
+header{
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--colorSecuandario);
+    color: var(--colorFuentePrimario);
+}
+
+figure img{
+    height: 40px;
+    width: 40px;
+}
+
+nav ol li{
+    width: 40px;
+    display: inline;
+}
+
+main{
+    background-color: var(--colorPrimario);
+    color: var(--colorFuentePrimario);
+    display: flex;
+    align-items: flex-start;
+}
+
+aside{
+    background-color: var(--colorAside);
+    color: var(--colorFuenteSecuandario);
+    width: 450px;
+}
+
+aside a{
+    display: block;
+}
+
+footer {
+    background-color: var(--colorSecuandario);
+    color: var(--colorFuentePrimario);
+}
+
+
