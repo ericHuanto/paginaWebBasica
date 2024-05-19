@@ -4,26 +4,31 @@
     <title>primera pagina</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="estilo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous"">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap">
 </head>
 <body>
-    <header>
-        <figure>
-            <img src="logo.png" alt="Logo">            
+    <header class="menu-principal">
+        <figure class="menu-logo">
+            <img src="logo.png" alt="Logo de la empresa">            
         </figure>
-        <nav>
-            <ol>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Favoritos</a></li>
-                <li><a href="acercaDe.html">Acerca de</a></li>
-            </ol>
+        <nav class="menu-enlaces">
+            <a href="#" class="active">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Favoritos</a>
+            <a href="acercaDe.html">Acerca de</a>
         </nav>
     </header>
     <main>
+        <section class="seccion_principal">
+            <div>
+                <h1> Bienvenidos a mi web</h1>
+                <button class="boton">Productos</button>
+            </div>
+        </section>
         <section>
-            <h1> Bienvenidos a mi web</h1>
             <article>
                 <h2> Primer articulo</h2>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis deleniti ea animi suscipit eius consectetur asperiores ducimus fuga aspernatur in eum, dolores odit quasi praesentium explicabo obcaecati error quisquam aperiam?</p>
@@ -48,6 +53,13 @@
     </main>
     <footer>
         <address>correoElectronico@gmail.com</address>
+        <a href="https://www.ejemplo.com">
+            <i class="fas fa-home"></i> Ir a la página de inicio
+        </a>
+        <p>
+            sip
+            <i class="fa-solid fa-download"></i>
+        </p>
     </footer>
 </body>
 </html>

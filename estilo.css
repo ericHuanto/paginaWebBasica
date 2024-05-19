@@ -1,42 +1,105 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Jacquard 12", sans-serif;
 }
 
 :root{
-    --colorPrimario: #3b0ba1 ;
-    --colorSecuandario: #870f0f;
+    --color-primario: #6d35e6 ;
+    --color-secuandario: #0B5ED7;
+    --color-oscuro: #122936;
+    --color-claro: #cbd4d9;
     --colorAside: #9C27B0;
     --colorFuentePrimario: #212121;
     --colorFuenteSecuandario: #757575;
+    --tamanio-header: 60px;
 }
 
-html{
-    font-family: "Jacquard 12", system-ui;
-}
-
+/* MENU PRINCIPAL*/
 header{
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--colorSecuandario);
+    position: relative;
+    height: var(--tamanio-header);
+    width: 100%;
     color: var(--colorFuentePrimario);
+    border-bottom: 1px dashed black; /*para bordear donde termine el header*/
 }
 
-figure img{
+.menu-principal figure{
+    float: left;
+}
+
+.menu-principal nav{
+    float: left;
+}
+
+.menu-logo{
+    height: 100%; /*en este contexto la figura va tomar 60px,pues le dije que tome el 100% */
+}
+
+.menu-logo img{
+    height: 80%; /*en este contexto la img va a tener el 80% de de .menu_logo*/
+    width: 90%;
+    /*ahora para centrarlo vamos usar potion relativa*/
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-enlaces{
+    position: relative;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-enlaces a{
+   padding: 0 8px;
+   color: var(--colorFuenteSecuandario);
+   text-decoration: none;
+   transition: all 0.5s;
+   border: 2px solid transparent;/*para cuando usar el hover no lo cree*/
+}
+
+.menu-enlaces a:hover{
+    border: 2px solid var(--color-primario); /*esto hace que se cree un borde lo que empuja a los demas, asi que le creo un border y le pongo transparente*/
+}
+
+.menu-enlaces .active{
+    color: var(--color-primario);
+}
+
+/* --------------- MAIN ------------------*/
+
+.seccion_principal{
+    height: calc(100vh - var(--tamanio-header)); /*Para que el tamanio de la pantalla sea siempre el tamanio que uso*/
+    background-image: url(img/img_pantalla_principal.avif);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /*para que la imagen baje con estilo*/
+}
+
+.seccion_principal div{
+    position: relative;
+    text-align: center;
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+.seccion_principal h1{
+    color: var(--color-claro);
+    font-weight: lighter;
+    font-size: 50px;
+    padding: 20px 0;
+}
+.seccion_principal .boton{
+    background-color: var(--color-primario);
+    color: var(--color-claro);
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 20px;
+    width: 120px;
     height: 40px;
-    width: 40px;
-}
-
-nav ol li{
-    width: 40px;
-    display: inline;
-}
-
-main{
-    background-color: var(--colorPrimario);
-    color: var(--colorFuentePrimario);
-    display: flex;
-    align-items: flex-start;
+    letter-spacing: 2px;
 }
 
 aside{
@@ -47,9 +110,12 @@ aside{
 
 aside a{
     display: block;
+    text-decoration: none;
 }
 
-footer {
+/*---------------- FOOTER  -----------------*/
+footer{
+    border-top: 1px dotted black;/*para bordear donde empieza el footer*/
     background-color: var(--colorSecuandario);
     color: var(--colorFuentePrimario);
 }
