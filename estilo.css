@@ -33,12 +33,14 @@ header{
 }
 
 .menu-logo{
-    height: 100%; /*en este contexto la figura va tomar 60px,pues le dije que tome el 100% */
+    /*height: 100%; /*en este contexto la figura va tomar 60px,pues le dije que tome el 100% */
+    height: var(--tamanio-header);
+    width: 60px;
 }
 
 .menu-logo img{
     height: 80%; /*en este contexto la img va a tener el 80% de de .menu_logo*/
-    width: 90%;
+    width: 80%;
     /*ahora para centrarlo vamos usar potion relativa*/
     position: relative;
     top: 50%;
@@ -69,18 +71,18 @@ header{
 }
 
 /* --------------- MAIN ------------------*/
-
 .seccion_principal{
     height: calc(100vh - var(--tamanio-header)); /*Para que el tamanio de la pantalla sea siempre el tamanio que uso*/
     background-image: url(img/img_pantalla_principal.avif);
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     background-attachment: fixed; /*para que la imagen baje con estilo*/
 }
 
 .seccion_principal div{
-    position: relative;
     text-align: center;
+
+    position: relative;
     top: 30%;
     transform: translateY(-50%);
 }
@@ -102,22 +104,291 @@ header{
     letter-spacing: 2px;
 }
 
+.seccion_principal .boton:hover{
+   /* width: 140px;
+    height: 60px;  Forma rudimentaria */
+    /*Forma mejorada para no dimensionar el contenedor*/
+    transform: scale(1.1);
+}
+
+main .titulo{
+    text-align: center;
+    color: var(--color-primario);
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 4px;
+    margin: 20px 0;
+}
+
+.seccion-articulos{
+    height: 500px;
+    width: 100%;
+}
+
+.articulo{
+    position: relative;/*lo agregue para ver que pasa*/
+    width: 33%;
+    height: 320px;
+    background-color: var(--color-claro);
+    float: left;
+    /*overflow: hidden; /*todo lo que sobra no se ve*/
+    overflow: hidden;
+    margin: 1px;
+}
+
+.articulo figure{
+    height: 40%;
+    width: 90%;
+    margin-bottom: 8px;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.articulo figure::before{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -50%;
+    content: '';/*No ponemos contenido extra, solo queremos pintar el fondo*/
+    background: linear-gradient(to top,var(--color-primario), var(--color-secuandario));
+    transform: skewY(-15deg);
+    transition: all 0.5s; /*para cuando use hover, tenga una linda transicion*/
+}
+
+.articulo:hover figure::before{ /*se puede poner before para modificarlo cuando pasemos por encima*/
+    transform: skewY(15deg);
+}
+
+.articulo img{
+    height: 100%;
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+}
+
+.articulo:hover img{
+    height: 80%;
+}
+
+.articulo h3{
+    font-size: 3vw;
+    color: var(--colorFuentePrimario);
+    text-align: center;
+}
+
+.centrado{
+    /*
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);*/
+    text-align: center;
+}
+
+.articulo .boton-redirecion{
+    position: relative;
+    height: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-claro);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px 10px;
+    top: 150px;
+    transition: all 0.5s;
+    opacity: 0; /*solo pa la claridad*/
+}
+
+.articulo:hover .boton-redirecion{
+    top: 20px;
+    opacity: 1;
+}
+
 aside{
     background-color: var(--colorAside);
     color: var(--colorFuenteSecuandario);
-    width: 450px;
+    height: 240px;
+    width: 100%;
+    
+}
+
+aside {
+    text-align: center;  
+}
+
+aside p, h3{
+    background-color: var(--color-claro);
 }
 
 aside a{
-    display: block;
-    text-decoration: none;
+    background-color: var(--color-claro);
 }
+
 
 /*---------------- FOOTER  -----------------*/
 footer{
     border-top: 1px dotted black;/*para bordear donde empieza el footer*/
-    background-color: var(--colorSecuandario);
+    background-color: var(--color-claro);
     color: var(--colorFuentePrimario);
+    height: 120px;
+    width: 100%;
+    /*text-align: center;*/
+}
+
+.redes-sociales{
+    height: 60px;
+    width: 100%;
+    background-color: var(--color-primario);
+}
+
+.redes-sociales div{
+    float: left;
+    width: 24%;
+    height: 100%;
+    line-height: 60px;/*tamanio del footer y se centraria*/
+    margin: 0 1px;
+}
+
+.redes-sociales div:hover{
+    background-color: var(--color-oscuro);
+}
+
+.redes-sociales div:hover a{
+    font-size: 40px;
+}
+
+.redes-sociales div a{
+    text-align: center;
+    display: block;
+    color: var(--color-claro);
+    transition: all .5s;
+    font-size: 30px; /*tamanio de los iconos*/
 }
 
 
+/*------------------- favorito ----------------------*/
+.favorito{
+    position: relative;
+    padding: 20px 100px;
+    height: 100vh;/*para que ocupe toda la pantalla*/
+}
+
+.favorito::before{
+    content: 'MATERIA';
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    font-size: 100px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.favorito::after{
+    content: 'BEST';
+    position: absolute;
+    top: 2%;
+    right: 0;
+    font-size: 100px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.contenedor-favorito > figure{
+    float: left;
+    margin: 30px
+}
+
+.contenedor-favorito > div{
+    float: left;
+    padding: 10px;
+}
+
+.content-img{
+    width: 40%;
+    position: relative;
+}
+
+.content-img img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.content-img::before{
+    content: 'Mejor Libro';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-color: var(--color-secuandario);
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    color: var(--color-claro);
+    transform: rotate(-30deg);
+    box-shadow: 0 0 10px 5px var(--color-secuandario);
+    /*z-index: 1; para que este por encima de la imagen*/
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.content-img:hover::before{
+    transform: scale(1.2) rotate(-10deg); /*interesante esto de poner dos a la vez*/
+}
+
+
+.contenedor-favorito:hover .content-img img{
+    transform: scale(1.1);
+}
+
+
+.content-fav{
+    width: 40%;
+    height: 100%;
+}
+
+
+.content-fav h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.content-fav h3{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-secuandario);
+    padding: 10px 0;
+}
+
+.content-fav .text{
+    text-align: justify; /*este es importante, para verse bien*/
+    padding: 10px 0;
+}
+
+.content-inferior .price{
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color-oscuro);
+}
+
+.content-inferior .boton{
+    float: right;
+    background-color: var(--color-primario);
+    color: var(--color-claro);
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    padding: 10px 8px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*line-heigth: tamanio del contedor y se centra en eje vertical pero no es la mejor idea*/
